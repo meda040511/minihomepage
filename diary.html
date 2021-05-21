@@ -1,0 +1,161 @@
+    <!DOCTYPE html>
+    <html lang="ko">
+      <head>
+        <meta charset="UTF-8" />       
+        <link rel="stylesheet" href="./static/layout.css" />
+        <link rel="stylesheet" href="./static/font.css" />
+        <link rel="stylesheet" href="./static/diary.css" />
+        <script src="https://kit.fontawesome.com/5fd56c3b4d.js" crossorigin="anonymous"></script>
+      </head>
+      <body>
+        <div class="bookcover">
+          <div class="bookdot">
+            <div class="page">
+              <div class="profile-container">
+                <div class="header profile-title">
+                  TODAY<span class="color-red"> 28</span> | TOTAL 234918
+                </div>
+                <div class="box profile-box">
+                  <div class="profile-image">
+                    <img
+                      class="profile-image-img"
+                      src="ddddd.jpg"                     
+                    />
+                  </div>
+                  <div class="profile-text">
+                    진짜 호주폐어 너무 귀여운것 같다.
+                  </div>
+                  <div class="profile-text">
+                    나도 나중에 키우고 싶다...
+                  </div>
+                  <div class="profile-username">
+                    <span style="color: blue">이재혁</span> (♂)
+                  </div>                
+                  <div class="profile-dropdown">
+                    <div class="dropdown-btn">
+                      <div class="dropdown-title">파도타기</div>
+                      <div class="triangle-down"></div>
+                    </div>
+                    <div class="dropdown-content">
+                      <a href="https://cafe.naver.com/codeuniv" target="_blank">코뮤니티로 가기</a>
+                      <a href="https://www.instagram.com/coding_comu/" target="_blank"
+                        >인스타그램으로 가기</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="content-container">
+                <div class="header content-title">
+                  <div class="content-title-name">나의 추억상자</div>
+                  <div class="content-title-url">https://url주소/나중에입력</div>
+                </div>
+                <div class="box content-box">
+                  <div class="date-box">
+                    <div class="today">02.30<br />TUE</div>
+                    <div class="date-list">
+                      <div class="date">1</div>
+                      <div class="date">2</div>
+                      <div class="date">3</div>
+                      <div class="date"><span class="color-blue">4</span></div>
+                      <div class="date"><span class="color-red">5</span></div>
+                      <div class="date">6</div>
+                      <div class="date">7</div>
+                      <div class="date">8</div>
+                      <div class="date">9</div>
+                      <div class="date">10</div>
+                      <div class="date"><span class="color-blue">11</span></div>
+                      <div class="date"><span class="color-red">12</span></div>
+                      <div class="date">13</div>
+                      <div class="date">14</div>
+                      <div class="date">15</div>
+                      <div class="date">16</div>
+                      <div class="date">17</div>
+                      <div class="date"><span class="color-blue">18</span></div>
+                      <div class="date"><span class="color-red">19</span></div>
+                      <div class="date">20</div>
+                      <div class="date">21</div>
+                      <div class="date">22</div>
+                      <div class="date">23</div>
+                      <div class="date">24</div>
+                      <div class="date"><span class="color-blue">25</span></div>
+                      <div class="date"><span class="color-red">26</span></div>
+                      <div class="date">27</div>
+                      <div class="date">28</div>
+                      <div class="date">29</div>
+                      <div class="date">30</div>
+                    </div>
+                  </div>
+                  <div class="scroll-box">
+                    <div class="diary-box">
+                      <div class="diary-date">2010.02.30 목 16:30</div>
+                      <div class="diary-text">
+                       <br>안녕
+                       <br>안녕하세여.
+                       <br>안녕하세요. 반갑습니다.
+                       <br>안녕하세요. 반갑습니다.
+                       <br>안녕하세요. 반갑습니다.
+                       <br>안녕하세요. 반갑습니다.
+                       <br>안녕하세요. 반갑습니다.
+                       <br>안녕하세요. 반갑습니다.
+
+                      </div>
+                    </div>
+                    <div class="diary-box">
+                      <div class="diary-date">2010.02.29 수 15:29</div>
+                      <div class="diary-text">
+                        <br>안녕하세요. 반갑습니다.
+                        <br>안녕하세요. 반갑습니다.
+                        <br>안녕하세요. 반갑습니다.
+                        <br>안녕하세요. 반갑습니다.
+                        <br>안녕하세요. 반갑습니다.
+                        <br>안녕하세요. 반갑습니다.
+                      </div>
+                    </div>
+                    
+                    <div class="button-box">
+                      <button class="diary-button" onclick="getTextFile()">
+                        <i class="fas fa-lock"></i>비밀일기
+                      </button>
+                    </div>
+                    <div class="diary-box" id="secret-box">
+                      <div class="diary-date">비밀일기</div>
+                      <div class="diary-text font-kyobohand" id="secret-diary"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="menu-container">
+                <a href="./home.html">홈</a>
+                <a href="./diary.html">다이어리</a>
+                <a href="./photo.html">사진첩</a>
+                <a href="./guestbook.html">방명록</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script>
+        function getTextFile() {
+          var input = document.createElement("input");
+          input.type = "file";
+          input.accept = "text/plain";
+          input.onchange = function (event) {
+            processFile(event.target.files[0]);
+          };
+          input.click();
+        }
+      
+        function processFile(file) {
+          var reader = new FileReader();
+          reader.readAsText(file, "utf-8");
+      
+          reader.onload = function () {
+            document.getElementById("secret-diary").innerText = reader.result;
+            document.getElementById("secret-box").style.display = "block";
+          };
+        }    
+      </script>  
+      </body>
+    </html>
+  
+
